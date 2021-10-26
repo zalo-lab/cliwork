@@ -4,6 +4,9 @@ namespace Cliwork;
 
 use Cliwork\Interfaces\OfferCollectionInterface;
 
+/**
+ * Basic iterator
+ */
 class Collection implements OfferCollectionInterface{
 
     protected $_collection;

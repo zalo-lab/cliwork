@@ -4,6 +4,10 @@ namespace Cliwork;
 
 use Exception;
 
+/**
+ * Registering commands from the initial namspaces.
+ * Every Command has 2 parts. Command and subcommand. Here, all are being registered.
+ */
 class CommandRegistry
 {
     protected $commands_path;
@@ -52,6 +56,9 @@ class CommandRegistry
         return isset($this->default_registry[$command]) ? $this->default_registry[$command] : null;
     }
 
+    /**
+     * set current command and subcommand to be excecuted
+     */
     public function getCallableController($command, $subcommand = null)
     {
         $namespace = $this->getNamespace($command);
@@ -63,6 +70,9 @@ class CommandRegistry
         return null;
     }
 
+    /**
+     * define when a command is registeres as a simple command and excecute it
+     */
     public function getCallable($command)
     {
         $single_command = $this->getCommand($command);

@@ -17,8 +17,11 @@ class ByvendorController extends CommandController
 
         $input = $this->hasParam('input') ? $this->getParam('input') : 0;
         $vendor = $this->hasParam('vendor') ? $this->getParam('vendor') : 0;
-
+        
+        //perfomr action
         $list = $reader->read($input);
+
+        //process information
         foreach ($list as $item) {
             $itemOB = new Item($item);
             if ($vendor > 0 && $itemOB->get("vendorId") == $vendor) {
@@ -26,6 +29,7 @@ class ByvendorController extends CommandController
             }
         }
 
+        //display information
         if (!empty($collection)) {
             echo "List of offers from vendor: ".$vendor."\n";
             for ($i = 1; $i <= $collection->size(); $i++) {

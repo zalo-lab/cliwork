@@ -17,6 +17,9 @@ class CommandNamespace
         return $this->name;
     }
 
+    /**
+     * Will get controllers from controllers directory and store in controllers attribute
+     */
     public function loadControllers($commands_path)
     {
         foreach (glob($commands_path . '/' . $this->getName() . '/*Controller.php') as $controller_file) {
@@ -36,6 +39,9 @@ class CommandNamespace
         return isset($this->controllers[$command_name]) ? $this->controllers[$command_name] : null;
     }
 
+    /**
+     * Perform the mapping of namespaces to get controllers as subcomands behind main folder
+     */
     protected function loadCommandMap($controller_file)
     {
         $filename = basename($controller_file);

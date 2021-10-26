@@ -15,6 +15,7 @@
 
     $app->setSignature("minicli hello name [ user=name ]");
 
+    //simple command registration
     $app->registerCommand('help', function (array $argv) use ($app) {
         $app->getPrinter()->display("usage: minicli hello [ your-name ]");
     });

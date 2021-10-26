@@ -2,6 +2,12 @@
 
 namespace Cliwork;
 
+/**
+ * basic command representation
+ * as abstract class define 2 obligatory methods
+ * - boot($app) which make the bootstraping for the application
+ * - handle is the launcher of the command
+ */
 abstract class CommandController
 {
     protected $app;
